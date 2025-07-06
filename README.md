@@ -1,2 +1,2 @@
 # todo-app
-Todo App with React.JS, FantaCSS & LocalStorage
+Basic Todo App with React.JS, FantaCSS & LocalStorage

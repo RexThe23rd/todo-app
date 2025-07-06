@@ -5,25 +5,20 @@ import { TodoInput } from './components/TodoInput'
 import { useState, useEffect } from 'react' 
 function App() {
   
-  // const todos = [
-  //   { input: "check if the summer sale is still on", complete: true },
-  //   { input: "finish the todo app", complete: false },
-  //   { input: "study react", complete: false },
-  //   { input: "get an idea for some music", complete: false },
-  // ]
-
   const [todos, setTodos] = useState([
     { input: "Hi, Add your first todo!", complete: true }
   ])
 
   const [selectedTab, setSelectedTab] = useState('All');
 
+  // Function to handle adding a new todo
   function handleAddTodo(newTodo){
     const newTodoList = [...todos, { input: newTodo, complete: false }]
     setTodos(newTodoList)
     handleSaveData(newTodoList);
   }
 
+  // Function to handle completing a todo
   function handleCompleteTodo(index){
     let newTodoList = [...todos];
     let completedTodo = todos[index];
@@ -33,6 +28,7 @@ function App() {
     handleSaveData(newTodoList);
   }
 
+  // Function to handle deleting a todo
   function handleDeleteTodo(index){
     let newTodoList = todos.filter((val, valIndex) => {
       return valIndex !== index
@@ -41,6 +37,7 @@ function App() {
     handleSaveData(newTodoList);
   }
 
+  //Saves data to localStorage
   function handleSaveData(currTodos) {
     localStorage.setItem('todo-app', JSON.stringify({ todos: currTodos }));
   }
